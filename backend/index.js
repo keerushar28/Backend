@@ -19,6 +19,28 @@ app.get('/api/fruits',(req,res) => {
         ];
     res.send(fruits);
 })
+app.get('/api/users',(req,res)=>{
+    const users = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+
+        },
+        {
+            id: 2,
+            name: 'Kiran Gautam',
+            email: 'kiran.gautam@example.com',
+
+        },
+        {
+            id: 3,
+            name: 'Rohan Kumar', 
+            email: 'rohan.kumar@example.com',
+        }
+    ]
+    res.send(users);
+})
 app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`)
         })

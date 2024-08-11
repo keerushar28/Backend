@@ -5,7 +5,9 @@ import './App.css'
 import axios from 'axios'
 
 function App() {
-  const [apple, setFruits] = useState([]);
+  const [fruits, setFruits] = useState([]);
+  const [users, setUsers] = useState([]);
+
 
   useEffect(()=>{
     axios.get('/api/fruits')
@@ -18,18 +20,22 @@ function App() {
 
     
   })
+
   return (
     <>
       <h1>Hello, world!</h1>
-      <p>Total Fruits: {apple.length}</p> {/* Corrected typo: 'lenght' to 'length' */}
+      <div>
+      <p>Total Fruits: {fruits.length}</p> {/* Corrected typo: 'lenght' to 'length' */}
       {
-        apple.map((fruit, index) => (
+        fruits.map((fruit, index) => (
           <div key={index}> {/* If 'name' is not unique, using 'index' as key */}
             <h2>{fruit.name}</h2>
             <p>Color: {fruit.color}</p>
           </div>
         ))
       }
+      </div>
+      
     </>
   )
 }
