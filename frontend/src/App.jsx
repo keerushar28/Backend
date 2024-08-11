@@ -22,10 +22,10 @@ function Fruits() {
     <div>
       <h1>Fruits</h1>
       <p>Total Fruits: {fruits.length}</p>
-      {fruits.map((fruit, index) => (
+      {fruits.map(({name,color}, index) => (
         <div key={index}>
-          <h2>{fruit.name}</h2>
-          <p>Color: {fruit.color}</p>
+          <h2>{name}</h2>
+          <p>Color: {color}</p>
         </div>
       ))}
     </div>
