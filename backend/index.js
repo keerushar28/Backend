@@ -41,6 +41,32 @@ app.get('/api/users',(req,res)=>{
     ]
     res.send(users);
 })
+
+app.get('/api/animals', (req,res)=> {   
+    const animals = [
+        {
+            id: 1,
+            name: 'Lion',
+            species: 'Mammal',
+            color: 'Golden',
+            },
+            {
+                    id: 2,
+                    name: 'Tiger',
+                    species: 'Mammal',
+                    color: 'Orange',
+                    },
+                    {
+                        id: 3,
+                        name: 'Elephant',
+                        species: 'Mammal',
+                        color: 'Grey',
+                        }
+                    ]
+                    res.send(animals);
+
+}
+)
 app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`)
         })

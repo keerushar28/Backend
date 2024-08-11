@@ -58,6 +58,32 @@ function Users() {
     </div>
   );
 }
+function Animals() {
+  const [animals, setAnimals] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/animals ')
+    .then(response => {
+      setAnimals(response.data);
+    })
+    .catch(error => {
+      console.error(error);
+      });
+      
+  })
+  return (
+    <div>
+      <h1>Animals</h1>
+      <p>Total Animals: {animals.length}</p>
+      {animals.map((animal, index) => (
+        <div key={index}>
+          <h2>{animal.name}</h2>
+          <p>Species: {animal.species}</p>
+        </div>
+        ))}
+        </div>
+  )
+}
 
 function App() {
   return (
@@ -70,12 +96,16 @@ function App() {
           <li>
             <Link to="/users">Users</Link>
           </li>
+          <li>
+            <Link to="/animals">Animals</Link>
+          </li>
         </ul>
       </nav>
 
       <Routes>
         <Route path="/" element={<Fruits />} />
         <Route path="/users" element={<Users />} />
+        <Route path='/animals' element={<Animals />} />
       </Routes>
     </Router>
   );
